@@ -6,7 +6,7 @@ from twilio.rest import Client
 # Twilio Credentials
 account_sid = 'your_twilio_account_sid'
 auth_token = 'your_twilio_auth_token'
-twilio_phone_number = 'your_twilio_phone_number'
+twilio_phone_number = 'whatsapp:'+'your_twilio_phone_number'
 recipient_phone_number = 'whatsapp:' + 'recipient_phone_number_with_country_code'
 
 client = Client(account_sid, auth_token)
