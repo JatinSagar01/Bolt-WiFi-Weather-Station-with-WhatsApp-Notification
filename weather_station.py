@@ -23,21 +23,21 @@ def send_whatsapp_message(message):
     )
     print("WhatsApp message sent with SID:", message.sid)
 
+def convert_to_temperature(sensor_value):
+    # Formula for temperature conversion based on the sensor's specifications
+    temperature = (sensor_value * 0.48828125) - 50.0
+    return temperature
+
+def convert_to_humidity(sensor_value):
+    # Formula for humidity conversion based on the sensor's specifications
+    humidity = (sensor_value * 0.09765625)
+    return humidity
+
 while True:
 
     response = mybolt.analogRead('A0')
     data = json.loads(response)
     sensor_value = int(data['value'])
-
-    def convert_to_temperature(sensor_value):
-    # Formula for temperature conversion based on the sensor's specifications
-        temperature = (sensor_value * 0.48828125) - 50.0
-        return temperature
-
-    def convert_to_humidity(sensor_value):
-    # Formula for humidity conversion based on the sensor's specifications
-        humidity = (sensor_value * 0.09765625)
-        return humidity
 
     temperature = convert_to_temperature(sensor_value)
     humidity = convert_to_humidity(sensor_value)
